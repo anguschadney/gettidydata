@@ -42,3 +42,15 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
  * z
  * (blank, not applicable to feature)
 6. **averagevalue** Average value of measurements for the particular feature, normalised between -1 and 1
+
+## Transformations
+
+* Data from the following datasets was combined:
+ * Features or measurements datasets (X_train.txt, X_test.txt)
+ * Activity labels datasets (y_train.txt, y_test.txt)
+ * Subject values datasets (subject_train.txt, subject_test.txt)
+* Activity labels were converted to descriptive values from activity_labels.txt
+* Descriptive column names were added from features.txt
+* Data was gathered into a vertical dataset by adding features, measurement and dimension columns to replace the feature specific column names
+* Data was grouped by subject, activity, features, measurement and dimension columns
+* Value (or measurement) was averaged with the above groupings
