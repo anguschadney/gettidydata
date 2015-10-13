@@ -61,7 +61,7 @@ levels(data$activity) <- activity_labels$V2
 # 2. Separate the measurement and dimension values out of the feature column
 # 3. Group the data by the activity, feature and measurement columns
 # 4. Add a column "average" which is the mean of all the "values"
-# 5. Spread the data again so that the mean and std is in separate columns
+# 5. Spread the data so that the average mean and average std are in separate columns
 data <- data %>%
     gather(feature, value, -(subject:activity)) %>%
     separate(feature, into=c("feature","measurement","dimension"), fill="right") %>%
