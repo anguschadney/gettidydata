@@ -29,7 +29,7 @@ test_subjects <- read.table("./UCI HAR Dataset/test/subject_test.txt", colClasse
 # Load in the features.txt table ('X' column names), so that we can filter out everything
 # that isn't a mean or std variable
 features <- read.table("./UCI HAR Dataset/features.txt")
-mean_std_idx <- grep("-(mean|std)", features$V2)
+mean_std_idx <- grep("-(mean|std)\\(\\)", features$V2)
 
 # Filter out non mean or std measurements
 train_vals <- train_vals[,mean_std_idx]
@@ -43,8 +43,8 @@ names(test_vals) <- features[mean_std_idx, 2]
 # and the column in train_subjects and test_subjects to "subjects"
 names(train_labels) <- c("activity")
 names(test_labels) <- c("activity")
-names(train_subjects) <- c("subjects")
-names(test_subjects) <- c("subjects")
+names(train_subjects) <- c("subject")
+names(test_subjects) <- c("subject")
 
 # Add the subjects and labels as the first and second columns in the two "vals" datasets
 train_vals <- cbind(train_subjects, train_labels, train_vals)
@@ -61,11 +61,13 @@ levels(data$activity) <- activity_labels$V2
 # 2. Separate the measurement and dimension values out of the feature column
 # 3. Group the data by the activity, feature and measurement columns
 # 4. Add a column "average" which is the mean of all the "values"
+# 5. Spread the data again so that the mean and std is in separate columns
 data <- data %>%
-    gather(feature, value, -(subjects:activity)) %>%
+    gather(feature, value, -(subject:activity)) %>%
     separate(feature, into=c("feature","measurement","dimension"), fill="right") %>%
-    group_by(subjects, activity, feature, measurement, dimension) %>%
-    summarise(averagevalue=mean(value))
+    group_by(subject, activity, feature, measurement, dimension) %>%
+    summarise(averagevalue=mean(value)) %>%
+    spread(measurement, averagevalue)
 
 # Write the data to tidy_data.txt in the current directory
 write.table(data, file="./tidy_data.txt", row.names=FALSE)

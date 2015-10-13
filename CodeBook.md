@@ -33,15 +33,13 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
  * 5 STANDING
  * 6 LAYING
 3. **feature:** Name of a particular feature, examples include fBodyAccJerk, fBodyGyro, tBodyGyroJerkMag...
-4. **measurement:** Measurement type, valid values are:
- * mean
- * std
-5. **dimension:** Dimension of a particular feature, valid values are:
+4. **dimension:** Dimension of a particular feature, valid values are:
  * x
  * y
  * z
  * (blank, not applicable to feature)
-6. **averagevalue** Average value of measurements for the particular feature, normalised between -1 and 1
+5. **mean** Average mean for the particular feature, normalised between -1 and 1
+6. **std** Average std for the particular feature, normalised between -1 and 1
 
 ## Transformations
 
@@ -54,3 +52,4 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 * Data was gathered into a vertical dataset by adding features, measurement and dimension columns to replace the feature specific column names
 * Data was grouped by subject, activity, features, measurement and dimension columns
 * Value (or measurement) was averaged with the above groupings
+* Average mean and average std were spreaded to different columns

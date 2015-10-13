@@ -50,7 +50,8 @@ The source files used to create the tidy data set from the extracted data archiv
 9. Separate the measurement and dimension values out of the feature column
 10. Group the data by the activity, feature and measurement columns
 11. Add a column "average" which is the mean of all the "values"
-12. Write the data to "./tidy_data.txt"
+12. Spread the data so that the average mean and average std are in separate columns
+13. Write the data to "./tidy_data.txt"
 
 ## Output File
 
