@@ -26,19 +26,19 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 
 1. **subjects:** Numeric variable corresponding to the number assigned to each subject
 2. **activity:** Factor variable corresponding to the activity each subject was performing, valid values are:
---* 1 WALKING
---* 2 WALKING_UPSTAIRS
---* 3 WALKING_DOWNSTAIRS
---* 4 SITTING
---* 5 STANDING
---* 6 LAYING
+ * 1 WALKING
+ * 2 WALKING_UPSTAIRS
+ * 3 WALKING_DOWNSTAIRS
+ * 4 SITTING
+ * 5 STANDING
+ * 6 LAYING
 3. **feature:** Name of a particular feature, examples include fBodyAccJerk, fBodyGyro, tBodyGyroJerkMag...
 4. **measurement:** Measurement type, valid values are:
---* mean
---* std
+ * mean
+ * std
 5. **dimension:** Dimension of a particular feature, valid values are:
---* x
---* y
---* z
---* (blank, not applicable to feature)
+ * x
+ * y
+ * z
+ * (blank, not applicable to feature)
 6. **averagevalue** Average value of measurements for the particular feature, normalised between -1 and 1
